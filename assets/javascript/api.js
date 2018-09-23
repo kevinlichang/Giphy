@@ -6,7 +6,7 @@ function displayGif() {
 
   var food = $(this).attr("data-name");
   apiKey = "JxgQChtKt7o28Ndn94wSb0QhXj2uRJBH"
-  var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + food;
+  var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&limit=10&q=" + food;
 
   $.ajax({
     url: queryURL,
@@ -15,9 +15,10 @@ function displayGif() {
    
     console.log(response);
     for (var i = 0; i < response.data.length; i++) {
-      var gifDiv = $('<img class="food" height="300">');
+      var gifDiv = $('<img>');
       gifDiv
-        .attr("src", response.data[i].images.downsized_large.url)
+        .attr({"src": response.data[i].images.downsized_large.url, "height": "300"})
+        .addClass("food")
         .appendTo($("#gif-view"))
     };
   });

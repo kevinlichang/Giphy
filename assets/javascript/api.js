@@ -1,3 +1,5 @@
+
+
 var foodsArr = ["pizza", "cheeseburger", "spaghetti", "buffalo wings"];
 
 
@@ -15,14 +17,22 @@ function displayGif() {
    
     console.log(response);
     for (var i = 0; i < response.data.length; i++) {
-      var gifDiv = $('<img>');
+      var gifDiv = $("<div>");
+      var gifImg = $("<img>")
+      gifImg
+        .attr("src", response.data[i].images.fixed_height.url)
+        .addClass("food");
+       
+      var ratingDiv = $("<h5>");
+      ratingDiv.text("Rating: " + response.data[i].rating);
+
       gifDiv
-        .attr({"src": response.data[i].images.downsized_large.url, "height": "300"})
-        .addClass("food")
-        .appendTo($("#gif-view"))
+        .addClass("gifDiv")
+        .append(ratingDiv, gifImg)
+        .appendTo($("#gif-view"));
     };
   });
-}
+};
 
 function renderButtons() {
   $("#buttons-view").empty();
@@ -37,8 +47,8 @@ function renderButtons() {
       .appendTo($("#buttons-view"))
 
 
-  }
-}
+  };
+};
 
 
 $("#add-gif").on("click", function(event) {
@@ -56,7 +66,8 @@ $("#add-gif").on("click", function(event) {
 
   renderButtons();
 
-})
+});
+
 $(document).on("click", ".food-btn", displayGif);
 
 renderButtons();

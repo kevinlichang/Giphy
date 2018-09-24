@@ -14,22 +14,29 @@ function displayGif() {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
+    var results = response.data;
+
    
     console.log(response);
-    for (var i = 0; i < response.data.length; i++) {
+    for (var i = 0; i < results.length; i++) {
+     
+      var stillGif = results[i].images.fixed_height_still.url;
+      var animatedGif = results[i].images.fixed_height.url;
+
+
       var gifDiv = $("<div>");
       var gifImg = $("<img>")
       gifImg
-        .attr("src", response.data[i].images.fixed_height.url)
+        .attr({"data-still": stillGif, "data-animate": animatedGif, "data-state": "still", "src": stillGif})
         .addClass("food");
        
       var ratingDiv = $("<h5>");
-      ratingDiv.text("Rating: " + response.data[i].rating);
+      ratingDiv.text("Rating: " + results[i].rating);
 
       gifDiv
         .addClass("gifDiv")
         .append(ratingDiv, gifImg)
-        .appendTo($("#gif-view"));
+        .prependTo($("#gif-view"));
     };
   });
 };
@@ -68,7 +75,23 @@ $("#add-gif").on("click", function(event) {
 
 });
 
+function playPauseGif() {
+  var state = $(".food").attr("data-state");
+
+  if (state === "still") {
+    var animatedImg = $(this).attr("data-animate");
+    $(this).attr({"src": animatedImg, "data-state": "animate"});
+
+  } else if (state === "animate") {
+    var stillImg = $(this).attr("data-still")
+    $(this).attr({"src": stillImg, "data-state": "still"});
+
+  }
+}
+
 $(document).on("click", ".food-btn", displayGif);
+$(document).on("click", ".food", playPauseGif)
+
 
 renderButtons();
 

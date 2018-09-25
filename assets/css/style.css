@@ -1,8 +1,23 @@
+body {
+  font-family: 'Judson', serif;
+  background-color: #e9ecef;
+}
+
+
+h1 {
+  font-family: 'Quando', serif;
+
+}
+
+
+.food-btn {
+  font-size: 1.3em;
+margin: 5px;
+
+}
+
 .gifDiv {
   display: inline-block;
   margin: 10px;
-}
-
-button {
-  margin: 5px;
+  
 }

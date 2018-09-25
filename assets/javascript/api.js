@@ -28,7 +28,7 @@ function displayGif() {
       var gifImg = $("<img>")
       gifImg
         .attr({"data-still": stillGif, "data-animate": animatedGif, "data-state": "still", "src": stillGif})
-        .addClass("food");
+        .addClass("gif");
        
       var ratingDiv = $("<h5>");
       ratingDiv.text("Rating: " + results[i].rating);
@@ -64,7 +64,7 @@ $("#add-gif").on("click", function(event) {
   var food = $("#giphy-input").val().trim();
 
   if (food == "") {
-    alert("Type something")
+    alert("Enter a type of food first!")
     return false
   }
 
@@ -76,7 +76,7 @@ $("#add-gif").on("click", function(event) {
 });
 
 function playPauseGif() {
-  var state = $(".food").attr("data-state");
+  var state = $(this).attr("data-state");
 
   if (state === "still") {
     var animatedImg = $(this).attr("data-animate");
@@ -90,7 +90,7 @@ function playPauseGif() {
 }
 
 $(document).on("click", ".food-btn", displayGif);
-$(document).on("click", ".food", playPauseGif)
+$(document).on("click", ".gif", playPauseGif)
 
 
 renderButtons();

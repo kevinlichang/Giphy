@@ -5,10 +5,18 @@ body {
 
 
 h1 {
-  font-family: 'Quando', serif;
+  font-family: 'Lobster', cursive;
+  text-shadow: 2px 2px black;
+  font-size: 5em;
 
 }
 
+.jumbotron {
+  background-image: url(../images/burger.jpeg);
+  background-color: #171516;
+  background-position: left;
+  background-repeat: no-repeat;
+}
 
 .food-btn {
   font-size: 1.3em;

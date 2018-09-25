@@ -7,35 +7,36 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
-  <link href="https://fonts.googleapis.com/css?family=Judson|Quando" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Quando" rel="stylesheet">
+
   <link rel="stylesheet" href="assets/css/style.css">
   <title>Title</title>
 </head>
 
 <body>
   <!-- API KEY JxgQChtKt7o28Ndn94wSb0QhXj2uRJBH-->
-  <bdo dir="ltr"></bdo>
-  <div class="jumbotron jumbotron-fluid bg-dark text-white text-center">
+  
+  <div class="jumbotron jumbotron-fluid text-white text-center">
     <div class="container-fluid">
-      <h1 class="display-4">Food GIF Search</h1>
+      <h1>Delicious Food GIFs</h1>
 
     </div>
   </div>
 
   <div class="container-fluid">
 
-    <div id="buttons-view"></div>
-
     <form id="giphy-form">
       <div class="row">
-        <div class="col">
+        <div class="col-12 col-sm-4 m-1">
           <input type="text" class="form-control" id="giphy-input" placeholder="Add your favorite food!">
         </div>
-        <div class="col">
-          <input id="add-gif" type="submit" value="add food" class="btn btn-outline-danger">
+        <div class="col-12 col-sm-2 my-1 p-0">
+          <input id="add-gif" type="submit" value="add food" class="btn btn-danger">
         </div>
       </div>
     </form>
+
+    <div id="buttons-view"></div>
 
     <div id="gif-view"></div>
 

@@ -48,7 +48,7 @@ function renderButtons() {
     var btnCreate = $("<button>")
 
     btnCreate
-      .addClass("food-btn btn btn-info")
+      .addClass("food-btn btn btn-outline-dark")
       .attr("data-name", foodsArr[i])
       .text(foodsArr[i])
       .appendTo($("#buttons-view"))

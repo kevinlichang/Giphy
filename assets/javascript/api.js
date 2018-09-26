@@ -30,13 +30,14 @@ function displayGif() {
         .attr({"data-still": stillGif, "data-animate": animatedGif, "data-state": "still", "src": stillGif})
         .addClass("gif");
        
-      var ratingDiv = $("<h5>");
+      var ratingDiv = $("<p>");
       ratingDiv.text("Rating: " + results[i].rating);
+
 
       gifDiv
         .addClass("gifDiv")
         .append(ratingDiv, gifImg)
-        .prependTo($("#gif-view"));
+        .appendTo($("#gif-view"));
     };
   });
 };
@@ -48,7 +49,7 @@ function renderButtons() {
     var btnCreate = $("<button>")
 
     btnCreate
-      .addClass("food-btn btn btn-outline-dark")
+      .addClass("food-btn btn btn-dark")
       .attr("data-name", foodsArr[i])
       .text(foodsArr[i])
       .appendTo($("#buttons-view"))
